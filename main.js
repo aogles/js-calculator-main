@@ -33,6 +33,10 @@
 
   }
 
+  function calculates(event){
+    console.log(event.target.value)
+  }
+
 
 $numbers.forEach(function(element){
     element.addEventListener('click', pushNumber)
@@ -43,6 +47,8 @@ $operators.forEach(function(element){
 })
 
 $equalsign.addEventListener('click', calculate)
+
+$clear.addEventListener('click',calculates)
 
    
 
