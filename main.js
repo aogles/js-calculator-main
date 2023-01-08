@@ -14,30 +14,45 @@
   const $log = document.querySelector('.number btn-lg');
   const $decimal = document.querySelector('.decimal');
   const $equalsign = document.querySelector('.equal-sign');
+  var calculation = [];
 
 //   Define a function named `pushNumber` that `alert()`s the number associated with its event argument 
 //  when called; add this function as an event listener for the number buttons
-
+//functions
   function pushNumber(event) {
     console.log(event.target.value)
    
+calculation.push(event.target.value)
+console.log(calculation)
   }
 
   function pushOperator(event) {
     console.log(event.target.value)
-   
-  }
+    
+}
 
   function calculate(event) {
  console.log(event.target.value)
+ 
+ for(let i=0; i < calculation.length; i++){
+    console.log(calculation(i));
+ };
 
   }
+
+ // calculate()
+
 
   function calculates(event){
-    console.log(event.target.value)
+    console.log(event.target.value);
   }
 
 
+ 
+ 
+  //functions end
+
+//alerts
 $numbers.forEach(function(element){
     element.addEventListener('click', pushNumber)
 })
@@ -53,6 +68,18 @@ $clear.addEventListener('click',calculates)
    
 
 
+
+/* for (let i = pushNumber;) {
+    if () {
+      
+    }
+  }
+  return calculate;
+}
+*/
+
+
+  
 
 
   
