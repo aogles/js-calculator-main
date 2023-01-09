@@ -20,19 +20,19 @@
 //  when called; add this function as an event listener for the number buttons
 //functions
   function pushNumber(event) {
-    console.log(event.target.value)
+    alert(event.target.value)
    
 calculation.push(event.target.value)
 console.log(calculation)
   }
 
   function pushOperator(event) {
-    console.log(event.target.value)
+   alert(event.target.value)
     
 }
 
   function calculate(event) {
- console.log(event.target.value)
+ alert(event.target.value)
  
  for(let i=0; i < calculation.length; i++){
     console.log(calculate(i));
@@ -44,7 +44,7 @@ console.log(calculation)
 
 
   function calculates(event){
-    console.log(event.target.value);
+   alert(event.target.value);
   }
 
 
