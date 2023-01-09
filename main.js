@@ -19,43 +19,31 @@
 //   Define a function named `pushNumber` that `alert()`s the number associated with its event argument 
 //  when called; add this function as an event listener for the number buttons
 //functions
-  function pushNumber(event) {
-    alert(event.target.value)
+
+function calculate(event) {
+ console.log(event.target.value)
+ }
+
+ function calculates(event){
+  console.log(event.target.value);
+ }
+
+function pushNumber(event) {
+  calculation.push(event.target.value)
+  console.log(calculation)
+
+  }
    
-calculation.push(event.target.value)
-console.log(calculation)
-  }
-
   function pushOperator(event) {
-   alert(event.target.value)
-    
-}
-
-  function calculate(event) {
- alert(event.target.value)
- 
- for(let i=0; i < calculation.length; i++){
-    console.log(calculate(i));
- };
-
+    console.log(event.target.value)
   }
-
-
-
-
-  function calculates(event){
-   alert(event.target.value);
-  }
-
-
  
- 
-  //functions end
-
 //alerts
-$numbers.forEach(function(element){
+
+ $numbers.forEach(function(element){
     element.addEventListener('click', pushNumber)
 })
+
 
 $operators.forEach(function(element){
     element.addEventListener('click', pushOperator)
@@ -67,20 +55,48 @@ $clear.addEventListener('click',calculates)
 
    
 
+//
 
+function calculate(){
+  console.log("you clicked the equal sign");
 
-/* for (let i = pushNumber;) {
-    if () {
-      
-    }
-  }
-  return calculate;
-}
-*/
+  let num1 =""
+  let num2 =""
+  let operators; 
+   operators = ["*", "/", "+" , "-", "c"];
 
+  for (let i=0; i < calculation.length; i++) {
+      let ops = calculation[i];
 
+      if (operators.includes (ops)) {
+      } 
+      else if (!operators) {
+ 
+              num1 += ops; }
+ else {
+  num2 += ops;
   
+      }
+  }
+  num1 = parseFloat
+  num2 = parseFloat
 
+  if ( operators === "+"){
+      alert ( num1 + num2) //etc for each operator
+}
+  if ( operators === "-"){
+  alert ( num1 - num2)
+}
+if ( operators === "/"){
+  alert ( num1 / num2)
+}
+if ( operators === "*"){
+  alert ( num1 * num2)
+}
+if ( operators === "c"){
+  alert (clear)
+}
+}
 
   
 
