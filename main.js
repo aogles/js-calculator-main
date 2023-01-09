@@ -35,12 +35,12 @@ console.log(calculation)
  console.log(event.target.value)
  
  for(let i=0; i < calculation.length; i++){
-    console.log(calculation(i));
+    console.log(calculate(i));
  };
 
   }
 
- // calculate()
+
 
 
   function calculates(event){
