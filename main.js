@@ -1,71 +1,103 @@
- (function() {
-    "use strict";
-  
-  
-  const $screen = document.querySelector('.calculator-screen');
-  const $numbers = document.querySelectorAll('.number');
-  const $operators = document.querySelectorAll('.operator');
-  const $clear = document.querySelector('.clear');
-  const $plusminus = document.querySelector('.plus-minus');
-  const $percent = document.querySelector('.percent');
-  const $log = document.querySelector('.number btn-lg');
-  const $decimal = document.querySelector('.decimal');
-  const $equalsign = document.querySelector('.equal-sign');
-  const calculation = [];
+(function () {
+  "use strict";
+  // thik about how to get clear button to work 
 
-  var output1 = ''
-  var output2=''
-  var operators;
-  operators = ['+', '-', '*', '/', '=', 'c']
-  var operations = clculation[i]
+  const $screen = document.querySelector(".calculator-screen");
+  const $numbers = document.querySelectorAll(".number");
+  const $operators = document.querySelectorAll(".operator");
+  const $clear = document.querySelector(".clear");
+  const $plusminus = document.querySelector(".plus-minus");
+  const $percent = document.querySelector(".percent");
+  const $log = document.querySelector(".number btn-lg");
+  const $decimal = document.querySelector(".decimal");
+  const $equalsign = document.querySelector(".equal-sign");
+  let calculation = [];
 
+  //output1 = parseInt
+  //output2 = parseInt
 
-//   Define a function named `pushNumber` that `alert()`s the number associated with its event argument 
-//  when called; add this function as an event listener for the number buttons
-//functions
+  let displayValue = "";
 
+  //var operations = 'null'
 
+  //   Define a function named `pushNumber` that `alert()`s the number associated with its event argument
+  //  when called; add this function as an event listener for the number buttons
+  //functions
 
+  function calculate(event) {
+    let num1 = "";
+    let num2 = "";
+    let operator = null;
+    const operators = ["+", "-", "*", "/"];
 
-function calculate(event) {
- console.log(event.target.value)
- }
-function calculates(event){
-  console.log(event.target.value);
- }
-function pushNumber(event) {
-  calculation.push(event.target.value)
-  console.log(calculation)
-}
-  function pushOperator(event) {
-    console.log(event.target.value)
+    // ['3','3','+', '2']
+
+    for (let i = 0; i < calculation.length; i++) {
+      const value = calculation[i];
+      if (operators.includes(value)) {
+        operator = value;
+      } else if (operator === null) {
+        num1 += value;
+      } else {
+        num2 += value;
+      }
+    }
+
+    num1 = parseFloat(num1);
+    num2 = parseFloat(num2);
+
+    let result;
+    if (operator === "+") {
+      result = num1 + num2;
+    } else if (operator === "-") {
+      result = num1 - num2;
+    } else if (operator === "*") {
+      result = num1 * num2;
+    } else if (operator === "/") {
+      result = num1 / num2;
+    }
+
+    displayValue = "";
+    $screen.value = result;
+
   }
- 
-//alerts
-//const calculator = new Calculator( previousOperand, cusrrentOperand )
 
-$numbers.forEach(function(element){
-    element.addEventListener('click', pushNumber)
-    
-})
+  function clear(event) {
+    // console.log(event.target.value);
+  }
 
-$operators.forEach(function(element){
-    element.addEventListener('click', pushOperator)
-})
+  function pushNumber(event) {
+    calculation.push(event.target.value);
+    displayValue += event.target.value;
+    $screen.value = displayValue;
+  }
 
-$equalsign.addEventListener('click', calculate)
+  function pushOperator(event) {
+    calculation.push(event.target.value);
+    displayValue = "";
 
-$clear.addEventListener('click',calculates)
+  }
 
- 
+  //const calculator = new Calculator( previousOperand, cusrrentOperand )
 
+  $numbers.forEach(function (element) {
+    console.log("here", element);
+    element.addEventListener("click", pushNumber);
+  });
 
-//mathOperations
-function calculate (){
+  $operators.forEach(function (element) {
+    element.addEventListener("click", pushOperator);
+  });
+
+  $equalsign.addEventListener("click", calculate);
+
+  $clear.addEventListener("click", clear);
+
+  //mathOperations
+  /*function calculate (){
   console.log("equal sign was presse");
 
 
 
-}
-
-});
+}*/
+})();
