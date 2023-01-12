@@ -12,6 +12,7 @@
   const $decimal = document.querySelector(".decimal");
   const $equalsign = document.querySelector(".equal-sign");
   let calculation = [];
+  
 
   //output1 = parseInt
   //output2 = parseInt
@@ -28,7 +29,8 @@
     let num1 = "";
     let num2 = "";
     let operator = null;
-    const operators = ["+", "-", "*", "/"];
+    let operators = ["+", "-", "*", "/","C" ];
+    // let clearValue = "0";
 
     // ['3','3','+', '2']
 
@@ -45,6 +47,7 @@
 
     num1 = parseFloat(num1);
     num2 = parseFloat(num2);
+   
 
     let result;
     if (operator === "+") {
@@ -55,15 +58,21 @@
       result = num1 * num2;
     } else if (operator === "/") {
       result = num1 / num2;
-    }
+    } 
 
     displayValue = "";
     $screen.value = result;
+    calculation = [];
+    displayValue = "";
 
   }
 
   function clear(event) {
-    // console.log(event.target.value);
+    calculation = [];
+    displayValue = "";
+    $screen.value = '0'
+  
+    
   }
 
   function pushNumber(event) {
@@ -81,7 +90,6 @@
   //const calculator = new Calculator( previousOperand, cusrrentOperand )
 
   $numbers.forEach(function (element) {
-    console.log("here", element);
     element.addEventListener("click", pushNumber);
   });
 
