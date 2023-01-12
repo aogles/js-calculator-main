@@ -67,3 +67,8 @@ The goal is to create a working calculator, identical in functionality to Calcul
     * m-
     * mr
 * Make the calculator responsive so that when the browser is mobile size, the scientific functions disappear
+
+const input = document.getElementById('input');
+input.addEventListener('click', function(event) {
+  alert('I was clicked!');
+});
